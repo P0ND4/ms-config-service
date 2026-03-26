@@ -1,0 +1,46 @@
+services:
+  config-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: config-service
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CONFIG_SEED_FILE_PATH: /app/bootstrap/bootstrap-config.json
+      CONFIG_PUBSUB_CHANNEL: configs:changes
+    volumes:
+      - ./src/app/bootstrap/bootstrap-config.json:/app/bootstrap/bootstrap-config.json:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    networks:
+      - config-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: config-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - config-network
+
+volumes:
+  redis-data:
+
+networks:
+  config-network:
+    driver: bridge

@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.git
+.gitignore
+.vscode
+.env
+src/app/bootstrap/bootstrap-config.json
+npm-debug.log*
+pnpm-debug.log*
+Dockerfile*
