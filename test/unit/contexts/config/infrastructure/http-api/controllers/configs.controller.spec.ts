@@ -1,5 +1,5 @@
 import { IConfigUseCase } from 'src/contexts/config/domain/use-cases/config-use-case.interface';
-import { ConfigsController } from './configs.controller';
+import { ConfigsController } from 'src/contexts/config/infrastructure/http-api/controllers/configs.controller';
 
 describe('ConfigsController', () => {
   let controller: ConfigsController;
@@ -105,7 +105,10 @@ describe('ConfigsController', () => {
       key: 'PORT',
     });
 
-    const result = await controller.deleteServiceKey('identity-service', 'PORT');
+    const result = await controller.deleteServiceKey(
+      'identity-service',
+      'PORT',
+    );
 
     expect(result).toEqual({
       deleted: true,

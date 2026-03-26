@@ -26,6 +26,7 @@ export default tseslint.config(
   },
   {
     rules: {
+      '@typescript-eslint/no-unsafe-function-type': 'off',
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-unnecessary-type-assertion': 'off',
       '@typescript-eslint/unbound-method': 'off',

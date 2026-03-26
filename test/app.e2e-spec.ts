@@ -30,8 +30,7 @@ describe('ConfigsController (e2e)', () => {
           useValue: configUseCaseMock,
         },
       ],
-    })
-      .compile();
+    }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
