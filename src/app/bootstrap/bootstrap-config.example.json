@@ -1,0 +1,22 @@
+{
+  "services": {
+    "identity-service": {
+      "NODE_ENV": "production",
+      "PORT": "3001",
+      "REDIS_HOST": "localhost",
+      "REDIS_PORT": "6379"
+    },
+    "notification-service": {
+      "NODE_ENV": "production",
+      "PORT": "3005",
+      "REDIS_HOST": "localhost",
+      "REDIS_PORT": "6379"
+    },
+    "cache-service": {
+      "NODE_ENV": "production",
+      "PORT": "3002",
+      "REDIS_HOST": "localhost",
+      "REDIS_PORT": "6379"
+    }
+  }
+}
