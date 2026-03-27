@@ -1,5 +1,5 @@
 import { IConfigUseCase } from 'src/contexts/config/domain/use-cases/config-use-case.interface';
-import { ConfigsController } from 'src/contexts/config/infrastructure/http-api/controllers/configs.controller';
+import { ConfigsController } from 'src/contexts/config/infrastructure/http-api/v1/config/controllers/configs.controller';
 
 describe('ConfigsController', () => {
   let controller: ConfigsController;

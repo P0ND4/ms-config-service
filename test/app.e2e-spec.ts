@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { App } from 'supertest/types';
 import { IConfigUseCase } from '../src/contexts/config/domain/use-cases/config-use-case.interface';
-import { ConfigsController } from '../src/contexts/config/infrastructure/http-api/controllers/configs.controller';
+import { ConfigsController } from '../src/contexts/config/infrastructure/http-api/v1/config/controllers/configs.controller';
 
 describe('ConfigsController (e2e)', () => {
   let app: INestApplication<App>;
