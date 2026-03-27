@@ -12,7 +12,7 @@ import {
   ReloadConfigInput,
   RollbackServiceConfigInput,
   ServiceConfigValues,
-} from 'src/contexts/config/domain/use-cases/config-use-case.interface';
+} from 'src/contexts/config/domain/use-cases/config/config-use-case.interface';
 import {
   assertStringValueMap,
   assertValidServiceName,

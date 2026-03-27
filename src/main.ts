@@ -7,7 +7,7 @@ import { ApiResponseInterceptor } from './contexts/shared/interceptors/api.respo
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { IConfigUseCase } from './contexts/config/domain/use-cases/config-use-case.interface';
+import { IConfigUseCase } from './contexts/config/domain/use-cases/config/config-use-case.interface';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

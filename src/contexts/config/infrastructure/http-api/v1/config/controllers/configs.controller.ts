@@ -19,7 +19,7 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { IConfigUseCase } from 'src/contexts/config/domain/use-cases/config-use-case.interface';
+import { IConfigUseCase } from 'src/contexts/config/domain/use-cases/config/config-use-case.interface';
 import { CreateConfigDto } from '../dtos/create-config.dto';
 import { PatchConfigDto } from '../dtos/patch-config.dto';
 import { HistoryQueryDto } from '../dtos/history-query.dto';

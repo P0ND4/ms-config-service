@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { App } from 'supertest/types';
-import { IConfigUseCase } from '../src/contexts/config/domain/use-cases/config-use-case.interface';
+import { IConfigUseCase } from '../src/contexts/config/domain/use-cases/config/config-use-case.interface';
 import { ConfigsController } from '../src/contexts/config/infrastructure/http-api/v1/config/controllers/configs.controller';
 
 describe('ConfigsController (e2e)', () => {
