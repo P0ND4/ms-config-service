@@ -4,7 +4,7 @@ import {
   assertValidServiceName,
   assertValidVariableKey,
   normalizeServiceName,
-} from 'src/contexts/config/application/helpers/validation.helper';
+} from 'src/contexts/config/application/config/helpers/validation.helper';
 import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
 import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
 

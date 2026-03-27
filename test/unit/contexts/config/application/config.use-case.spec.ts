@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { readFile } from 'node:fs/promises';
-import { ConfigUseCase } from 'src/contexts/config/application/config.use-case';
+import { ConfigUseCase } from 'src/contexts/config/application/config/config.use-case';
 import { IConfigRepository } from 'src/contexts/shared/domain/repositories';
 import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
 import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
