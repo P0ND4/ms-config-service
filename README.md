@@ -9,6 +9,9 @@ Servicio de configuracion centralizada para microservicios, con almacenamiento a
 - Publicacion de eventos por canal Redis.
 - Recarga de configuracion semilla al inicio o bajo demanda.
 
+## Endpoints
+<img width="1451" height="504" alt="image" src="https://github.com/user-attachments/assets/3f8c1724-e8ac-41c0-bd25-2207084f7cb7" />
+
 ## Stack
 - NestJS
 - Redis (ioredis)
