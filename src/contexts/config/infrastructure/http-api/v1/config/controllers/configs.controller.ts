@@ -25,9 +25,10 @@ import { PatchConfigDto } from '../dtos/patch-config.dto';
 import { HistoryQueryDto } from '../dtos/history-query.dto';
 import { ReloadConfigDto } from '../dtos/reload-config.dto';
 import { RollbackConfigDto } from '../dtos/rollback-config.dto';
+import { V1_CONFIGS } from '../../../route.constants';
 
 @ApiTags('Configs')
-@Controller('configs')
+@Controller(V1_CONFIGS)
 export class ConfigsController {
   constructor(private readonly configUseCase: IConfigUseCase) {}
 
