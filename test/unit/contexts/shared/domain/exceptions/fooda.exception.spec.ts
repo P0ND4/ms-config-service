@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
 
 describe('FoodaException', () => {
   it('builds expected response payload and status', () => {

@@ -20,8 +20,8 @@ import {
   normalizeServiceName,
 } from './helpers/validation.helper';
 import { IConfigRepository } from 'src/contexts/shared/domain/repositories';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
 
 @Injectable()
 export class ConfigUseCase implements IConfigUseCase {

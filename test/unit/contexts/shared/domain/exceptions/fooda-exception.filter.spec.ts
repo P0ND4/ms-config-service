@@ -4,9 +4,9 @@ import {
   HttpStatus,
   NotFoundException,
 } from '@nestjs/common';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
-import { FoodaExceptionFilter } from 'src/contexts/shared/domain/exceptions/fooda-exception.filter';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
+import { FoodaExceptionFilter } from 'src/contexts/shared/domain/exceptions/config-exception.filter';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
 
 describe('FoodaExceptionFilter', () => {
   const createContext = (response: {

@@ -1,5 +1,5 @@
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
 import { HttpStatus } from '@nestjs/common';
 
 const SERVICE_KEY_REGEX = /^[a-z][a-z0-9-]{1,49}$/;

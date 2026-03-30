@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { FoodaExceptionInfo } from './fooda-exception.codes';
+import { FoodaExceptionInfo } from './config-exception.codes';
 
 export class FoodaException extends HttpException {
   public readonly code: string;

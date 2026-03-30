@@ -3,8 +3,8 @@ import { ConfigService } from '@nestjs/config';
 import { readFile } from 'node:fs/promises';
 import { ConfigUseCase } from 'src/contexts/config/application/config/config.use-case';
 import { IConfigRepository } from 'src/contexts/shared/domain/repositories';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
 
 jest.mock('node:fs/promises', () => ({
   readFile: jest.fn(),

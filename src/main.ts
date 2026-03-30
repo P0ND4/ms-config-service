@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { API } from './app/routes/route.constants';
 import { CustomValidationPipe } from './contexts/shared/domain/exceptions/custom-validation.pipe';
-import { FoodaExceptionFilter } from './contexts/shared/domain/exceptions/fooda-exception.filter';
+import { FoodaExceptionFilter } from './contexts/shared/domain/exceptions/config-exception.filter';
 import { ApiResponseInterceptor } from './contexts/shared/interceptors/api.response.interceptor';
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';

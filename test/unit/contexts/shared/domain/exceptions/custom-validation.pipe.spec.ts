@@ -1,8 +1,8 @@
 import { ArgumentMetadata, BadRequestException } from '@nestjs/common';
 import { IsString } from 'class-validator';
 import { CustomValidationPipe } from 'src/contexts/shared/domain/exceptions/custom-validation.pipe';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
 import { CreateConfigDto } from 'src/contexts/config/infrastructure/http-api/v1/config/dtos/create-config.dto';
 
 class CodeByKeyDto {

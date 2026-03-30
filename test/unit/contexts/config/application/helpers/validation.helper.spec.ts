@@ -5,8 +5,8 @@ import {
   assertValidVariableKey,
   normalizeServiceName,
 } from 'src/contexts/config/application/config/helpers/validation.helper';
-import { FoodaException } from 'src/contexts/shared/domain/exceptions/fooda.exception';
-import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/fooda-exception.codes';
+import { FoodaException } from 'src/contexts/shared/domain/exceptions/config.exception';
+import { FoodaExceptionCodes } from 'src/contexts/shared/domain/exceptions/config-exception.codes';
 
 describe('validation.helper', () => {
   it('normalizeServiceName trims and lowercases', () => {
