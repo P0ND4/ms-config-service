@@ -6,7 +6,7 @@ import {
   HttpStatus,
   NotFoundException,
 } from '@nestjs/common';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { FoodaException } from './config.exception';
 import { FoodaExceptionCodes } from './config-exception.codes';
 
@@ -14,6 +14,7 @@ import { FoodaExceptionCodes } from './config-exception.codes';
 export class FoodaExceptionFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
+    const request = ctx.getRequest<Request>();
     const response = ctx.getResponse<Response>();
 
     if (exception instanceof FoodaException) {
@@ -21,22 +22,34 @@ export class FoodaExceptionFilter implements ExceptionFilter {
       const exceptionResponse = exception.getResponse() as {
         code: string;
         message: string;
+        service?: string;
       };
 
       (response as any).errorCode = exceptionResponse.code;
-      response.status(status).json(exceptionResponse);
+      response.status(status).json(
+        this.buildErrorEnvelope({
+          statusCode: status,
+          code: exceptionResponse.code,
+          message: exceptionResponse.message,
+          service: exceptionResponse.service ?? 'config-service',
+          path: request.originalUrl,
+        }),
+      );
       return;
     }
 
     if (exception instanceof NotFoundException) {
       const errorInfo = FoodaExceptionCodes.Ex0001;
       (response as any).errorCode = errorInfo.code;
-      response.status(HttpStatus.NOT_FOUND).json({
-        statusCode: HttpStatus.NOT_FOUND,
-        message: errorInfo.message,
-        code: errorInfo.code,
-        service: errorInfo.service,
-      });
+      response.status(HttpStatus.NOT_FOUND).json(
+        this.buildErrorEnvelope({
+          statusCode: HttpStatus.NOT_FOUND,
+          message: errorInfo.message,
+          code: errorInfo.code,
+          service: errorInfo.service,
+          path: request.originalUrl,
+        }),
+      );
       return;
     }
 
@@ -56,22 +69,52 @@ export class FoodaExceptionFilter implements ExceptionFilter {
 
       const errorInfo = FoodaExceptionCodes.Ex0000;
       (response as any).errorCode = errorInfo.code;
-      response.status(status).json({
-        statusCode: status,
-        message,
-        code: errorInfo.code,
-        service: errorInfo.service,
-      });
+      response.status(status).json(
+        this.buildErrorEnvelope({
+          statusCode: status,
+          message,
+          code: errorInfo.code,
+          service: errorInfo.service,
+          path: request.originalUrl,
+        }),
+      );
       return;
     }
 
     const errorInfo = FoodaExceptionCodes.Ex9999;
     (response as any).errorCode = errorInfo.code;
-    response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-      statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
-      message: errorInfo.message,
-      code: errorInfo.code,
-      service: errorInfo.service,
-    });
+    response.status(HttpStatus.INTERNAL_SERVER_ERROR).json(
+      this.buildErrorEnvelope({
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: errorInfo.message,
+        code: errorInfo.code,
+        service: errorInfo.service,
+        path: request.originalUrl,
+      }),
+    );
+  }
+
+  private buildErrorEnvelope(input: {
+    statusCode: number;
+    message: string;
+    code: string;
+    service: string;
+    path: string;
+  }) {
+    return {
+      success: false,
+      statusCode: input.statusCode,
+      message: input.message,
+      code: input.code,
+      service: input.service,
+      timestamp: new Date().toISOString(),
+      path: input.path,
+      error: {
+        statusCode: input.statusCode,
+        message: input.message,
+        code: input.code,
+        service: input.service,
+      },
+    };
   }
 }
